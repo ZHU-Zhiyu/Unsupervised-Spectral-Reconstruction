@@ -5,14 +5,14 @@ import numpy as np
 import torch.nn.functional as f
 from rgb2hsi import reconnet as hsiG
 from SPFNet import SPFNet as respG
-from RGBGenerator import RGBGenerator as MSIG
+# from RGBGenerator import RGBGenerator as MSIG
 import itertools
 from Discriminator import Discriminator_HSI as DisHSI
 from Discriminator import Discriminator_HSI_lite as DisHSIlite
 from Discriminator import Discriminator_RGB as DisRGB
 from SPFNet import SPFNet as RespG
 from rgb2hsi import reconnet as HSIG
-from RGBGenerator import RGBGenerator as RGBG
+# from RGBGenerator import RGBGenerator as RGBG
 import torch.nn.functional as F
 import torch.autograd as autograd
 from utils import get_gaussian_kernel as gaussian
@@ -41,7 +41,7 @@ class Network(nn.Module):
         # state_dict = torch.load('/home/zzy/comparing_method/unsupervised/SPFWeights/state_dicr_499.pkl')
         # self.respG = load_model(self.respG,state_dict['spenet'])
         self.hsiG = HSIG()
-        self.RgbG = RGBG()
+        # self.RgbG = RGBG()
         self.iter = 1
         # self.gen_optimizer1 = torch.optim.Adam(itertools.chain(self.respG.parameters(),self.RgbG.parameters()),lr=lr)
         self.gen_optimizer = torch.optim.Adam(itertools.chain(self.hsiG.parameters(),self.respG.parameters()),lr=1e-4)
